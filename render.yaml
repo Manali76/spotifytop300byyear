@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: top-spotify-by-year-max
+    env: docker
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /health
+    envVars:
+      - key: SPOTIFY_CLIENT_ID
+        sync: false
+      - key: SPOTIFY_CLIENT_SECRET
+        sync: false
+      - key: ACTION_API_KEY
+        sync: false
+      - key: DEFAULT_LIMIT
+        value: "300"
+      - key: MAX_LIMIT
+        value: "500"
+      - key: CACHE_TTL_SECONDS
+        value: "3600"
